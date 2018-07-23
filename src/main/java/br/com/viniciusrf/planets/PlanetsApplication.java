@@ -22,7 +22,7 @@ public class PlanetsApplication {
 		SpringApplication.run(PlanetsApplication.class, args);
 	}
 	
-	 @Bean
+	 /*@Bean
 	  public Executor asyncExecutor() {
 	    ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
 	    executor.setCorePoolSize(2);
@@ -30,6 +30,6 @@ public class PlanetsApplication {
 	    executor.setQueueCapacity(500);
 	    executor.initialize();
 	    return executor;
-	  }
+	  }*/
 	  
 }

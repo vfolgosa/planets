@@ -7,7 +7,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.ArrayList;
 
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -28,7 +27,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.viniciusrf.planets.PlanetsApplication;
 import br.com.viniciusrf.planets.dto.PlanetDTO;
-import br.com.viniciusrf.planets.exception.PlanetNotFoundException;
 import br.com.viniciusrf.planets.service.IPlanetsService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
