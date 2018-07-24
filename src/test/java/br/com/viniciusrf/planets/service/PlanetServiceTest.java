@@ -43,18 +43,18 @@ public class PlanetServiceTest {
 	}
 	
 	@Test
-	public void verify0AllPlanets() throws Exception {
+	public void verify0CreatePlanet() throws Exception {
+		planet = new PlanetDTO(PLANET_TEST, "temperate", "grasslands, mountains", new ArrayList<String>());
+		planet = service.createPlanet(planet);
+		assertThat(planet.get_id()).isNotNull();
+	}
+	
+	@Test
+	public void verify1AllPlanets() throws Exception {
 		
 		service.retrieveAllPlanets();
 		assertThat(service.retrieveAllPlanets()).isNotEmpty();
 		
-	}
-	
-	@Test
-	public void verify1CreatePlanet() throws Exception {
-		planet = new PlanetDTO(PLANET_TEST, "temperate", "grasslands, mountains", new ArrayList<String>());
-		planet = service.createPlanet(planet);
-		assertThat(planet.get_id()).isNotNull();
 	}
 	
 	
