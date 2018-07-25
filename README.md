@@ -13,11 +13,12 @@ Esta aplicação foi desenvolvida usando:
 * Spring Boot 1.4.4
 * Apache Commons Lang 3
 * MongoDB
+* Docker
 
 Começando
 ---------------
 
-Para rodar a aplicação, basta executar a classe `PlanetsApplication.java`. Essa classe subirá uma versão do Tomcat e a aplicação estará disponível.
+A arquitetura foi feita com dois containers, um da app e outro do mongodb e está configurada com o docker-compose, para rodar digite o comando docker-compose up --build
 
 Métodos
 ------------------
