@@ -20,7 +20,7 @@ node {
 			
 		}
 		stage('Stopping previus container') {
-			#sh 'docker stop $(docker ps -q --filter ancestor=planets-api )'			
+						
 		}
 		stage('Run image') {
 			customImage.run('-p 8081:8081')
