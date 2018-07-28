@@ -15,7 +15,7 @@ VOLUME /tmp
 COPY . /tmp
 WORKDIR /tmp
 
-RUN sudo apt install maven -y
+RUN sudo apt-get install maven -y
 
 RUN mvn clean install
 
