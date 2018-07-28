@@ -11,11 +11,17 @@
 
 FROM openjdk:8-jre-alpine
 ENV APP_FILE planets-0.0.1-SNAPSHOT.jar
-ENV APP_HOME /app
+VOLUME /tmp
+COPY . /tmp
+WORKDIR /tmp
+
+RUN apt install maven -y
+
+RUN mvn clean install
+
 EXPOSE 8090
-RUN ls
-RUN pwd
-COPY target/$APP_FILE $APP_HOME/
-WORKDIR $VERTICLE_HOME
-ENTRYPOINT ["sh", "-c"]
-CMD ["exec java -jar $APP_FILE"]
+
+ADD target/$APP_FILE app.jar
+
+
+CMD ["exec java -jar app.jar"]
