@@ -1,4 +1,7 @@
 FROM openjdk
+VOLUME /tmp
+COPY . /tmp
+WORKDIR /tmp
 MAINTAINER Vinicius Folgosa
 RUN pwd
 RUN ls
