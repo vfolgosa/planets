@@ -16,7 +16,7 @@ node {
        
     }
     
-	docker.withRegistry('http://54.233.110.154:5043', 'docker-repository-credentials') {
+	docker.withRegistry('http://54.233.110.154:5043') {
 		stage('Build image') {
 			customImage = docker.build("testes/planets-service:${env.version}")
 		}
