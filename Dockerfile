@@ -7,9 +7,11 @@ MAINTAINER Vinicius Folgosa
 
 ENV dir /tmp
 
+WORKDIR ${dir}
+
 VOLUME ${dir}
 COPY . ${dir}
-WORKDIR ${dir} 
+ 
 RUN mvn clean package -DskipTests=true
 
 
