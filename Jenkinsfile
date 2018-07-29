@@ -1,17 +1,49 @@
-node {
-
-	def customImage
-	
-	stage('Checkout') {
-		checkout scm
+pipeline {
+  def image
+  agent none
+  stages{
+    stage('Build Jar'){
+        agent {
+          docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+          }
+        }
+        steps {
+            sh 'mvn package'
+            stash includes: 'target/*.jar', name: 'targetfiles'
+        }
     }
-    stage('Build') { 
-      dir('.') {
-        sh 'mvn clean install'
-        def pom = readMavenPom file:'pom.xml'
-        print pom.version
-        env.version = pom.version
-        currentBuild.description = "Release: ${env.version}"
+    stage('Build Docker Image') {
+        agent {
+            node {
+                label 'DockerDefault'
+            }
+         }
+
+      steps {
+            script{
+                unstash 'targetfiles'
+                sh 'ls -l -R'
+				image = docker.build("planets-service:latest", ' .')
+            }
       }
     }
+   docker.withRegistry('http://54.233.110.154:5043', 'docker-repository-credentials') { 
+   stage('Push Image') {
+   		steps{
+   			
+   				image.push();
+   			
+   		}
+   }
+   stage('Run container'){
+   		steps{
+   			
+   				image.run('-p 8090:8090')
+   			
+   		}
+   }
+   }
+  }
 }

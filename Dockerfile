@@ -1,7 +1,11 @@
-FROM openjdk:8-jre-alpine
-ENV APP_FILE planets-0.0.1-SNAPSHOT.jar
-ENV APP_HOME /app
+#install OS
+FROM centos
+#install java
+RUN yum install -y java
+#make directory structure to store temporary files
+RUN mkdir -p /store
+#put jar into container
+ADD target/planets-0.0.1-SNAPSHOT.jar planets-service.jar
 EXPOSE 8090
-COPY target/$APP_FILE $APP_HOME/
-WORKDIR $APP_HOME
-CMD ["java","-jar", $APP_FILE]
+#run jar
+ENTRYPOINT ["java", "-jar", "/planets-service.jar"]
