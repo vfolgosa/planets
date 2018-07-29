@@ -34,6 +34,7 @@ import br.com.viniciusrf.planets.service.IPlanetsService;
 @ContextConfiguration(classes = PlanetsApplication.class)
 @SpringBootTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@DataMongoTest
 public class PLanetsControllerTest {
 	
 	private MockMvc mockMvc;
