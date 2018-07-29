@@ -16,8 +16,11 @@ node {
     
 	docker.withRegistry('http://54.233.110.154:5043', 'docker-repository-credentials') {
 		stage('Build image') {
-			unstash 'app'
-			customImage = docker.build("planets-service")
+			script{
+				unstash 'app'
+				sh 'ls -l -R'
+				customImage = docker.build("planets-service")
+			}
 		}
         stage('Push image') {
 			customImage.push()
