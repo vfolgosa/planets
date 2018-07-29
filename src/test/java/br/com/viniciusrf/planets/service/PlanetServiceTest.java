@@ -18,15 +18,15 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.viniciusrf.planets.PlanetsApplication;
+import br.com.viniciusrf.planets.PlanetsApplicationTests;
 import br.com.viniciusrf.planets.dto.PlanetApiSW;
 import br.com.viniciusrf.planets.dto.PlanetDTO;
 import br.com.viniciusrf.planets.exception.PlanetNotFoundException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = PlanetsApplication.class)
+//@ContextConfiguration(classes = PlanetsApplication.class)
 @SpringBootTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@DataMongoTest
 public class PlanetServiceTest {
 	
 	@Autowired

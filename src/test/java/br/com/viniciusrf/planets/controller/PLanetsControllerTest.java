@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.http.MediaType;
@@ -31,10 +30,9 @@ import br.com.viniciusrf.planets.dto.PlanetDTO;
 import br.com.viniciusrf.planets.service.IPlanetsService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = PlanetsApplication.class)
+//@ContextConfiguration(classes = PlanetsApplication.class)
 @SpringBootTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@DataMongoTest
 public class PLanetsControllerTest {
 	
 	private MockMvc mockMvc;

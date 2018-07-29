@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      port: 27999
+      database: desafiob2w
+      host: 127.0.0.1
