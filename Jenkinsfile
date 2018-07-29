@@ -11,10 +11,12 @@ node {
         print pom.version
         env.version = pom.version
         currentBuild.description = "Release: ${env.version}"
+        stash includes: '**/target/*.jar', name: 'app'
     }
     
 	docker.withRegistry('http://54.233.110.154:5043', 'docker-repository-credentials') {
 		stage('Build image') {
+			unstash 'app'
 			customImage = docker.build("planets-service")
 		}
         stage('Push image') {
