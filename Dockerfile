@@ -8,16 +8,17 @@
 #ADD target/planets-0.0.1-SNAPSHOT.jar planets-service.jar
 #CMD ["java", "-jar" ,"./planets-service.jar"]
 #EXPOSE 8081
+ENV dir /tmp
+VOLUME ${dir}
+FROM maven:3.5-jdk-8-alpine
+WORKDIR ${dir}
+COPY . ${dir}
+RUN mvn install 
+
 
 FROM openjdk:8-jre-alpine
 ENV APP_FILE planets-0.0.1-SNAPSHOT.jar
-VOLUME /tmp
-COPY . /tmp
-WORKDIR /tmp
-
-RUN apt-get install maven -y
-
-RUN mvn clean install
+WORKDIR ${dir}
 
 EXPOSE 8090
 
