@@ -5,7 +5,7 @@ node {
 	stage('Checkout') {
 		checkout scm
     }
-    stage('Build') { # (2)
+    stage('Build') { 
       dir('config-service') {
         sh 'mvn clean install'
         def pom = readMavenPom file:'pom.xml'
