@@ -15,7 +15,7 @@ pipeline {
         }
     }
     stage('Build Docker Image') {
-        agent {
+      agent {
             node {
                 label 'DockerDefault'
             }
@@ -29,21 +29,20 @@ pipeline {
             }
       }
     }
-   docker.withRegistry('http://54.233.110.154:5043', 'docker-repository-credentials') { 
+    
    stage('Push Image') {
    		steps{
-   			
+   			docker.withRegistry('http://54.233.110.154:5043', 'docker-repository-credentials') {
    				image.push();
-   			
+   			}
    		}
    }
    stage('Run container'){
    		steps{
-   			
+   			docker.withRegistry('http://54.233.110.154:5043', 'docker-repository-credentials') {
    				image.run('-p 8090:8090')
-   			
+   			}
    		}
-   }
-   }
+    }
   }
 }
