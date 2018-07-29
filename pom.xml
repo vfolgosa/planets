@@ -62,7 +62,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>account-service</finalName>
+		<finalName>planets-service</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

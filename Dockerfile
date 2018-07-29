@@ -2,7 +2,7 @@ FROM centos
 
 RUN yum install -y java
 
-ADD target/planets-0.0.1-SNAPSHOT.jar planets-service.jar
+ADD target/planets-service.jar planets-service.jar
 
 EXPOSE 8090
 
