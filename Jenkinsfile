@@ -18,7 +18,6 @@ node {
 		stage('Build image') {
 			script{
 				unstash 'app'
-				sh 'ls -l -R'
 				customImage = docker.build("planets-service")
 			}
 		}
