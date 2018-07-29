@@ -6,7 +6,7 @@ node {
 		checkout scm
     }
     stage('Build') { 
-      dir('config-service') {
+      dir('.') {
         sh 'mvn clean install'
         def pom = readMavenPom file:'pom.xml'
         print pom.version
@@ -16,7 +16,7 @@ node {
     }
     
 	docker.withRegistry('http://54.233.110.154:5043', 'docker-repository-credentials') {
-	 dir ('config-service') {
+	 dir ('.') {
 		stage('Build image') {
 			customImage = docker.build("planets-service")
 		}
