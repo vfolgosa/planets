@@ -8,7 +8,7 @@ node {
     
 	docker.withRegistry('http://54.233.110.154:5043', 'docker-repository-credentials') {
 		stage('Build image') {
-			customImage = docker.build("testes/planets-service:${env.version}")
+			customImage = docker.build("planets-service")
 		}
         stage('Push image') {
 			customImage.push()
