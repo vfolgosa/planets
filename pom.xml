@@ -68,7 +68,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>br.com.viniciusrf.planets.Planets.Application</mainClass>
+					<mainClass>br.com.viniciusrf.planets.PlanetsApplication</mainClass>
 					<addResources>true</addResources>
 				</configuration>
 				<executions>
